@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Book Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: rgb(182, 188, 188);
+            overflow-x: hidden;
+        }
+
+        .ebook-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #000000;
+            background-color: rgba(255, 247, 247, 0.7);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(113, 78, 78, 0.5);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .book {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .book:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .book img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .book h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .book p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .book a {
+            display: block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .book a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="ebook-title">Timetable</div>
+
+<div class="container">
+    <div class="book">
+        <img src="https://marketplace.canva.com/EAFl-L2uic4/1/0/1600w/canva-yellow-organic-summer-camp-schedule-QoQYU2kQZAw.jpg" alt="Book 1">
+        <h3>Section Timetable</h3>
+        <p>Download the timetable for all sections.</p>
+        <a href="https://drive.google.com/file/d/1B2qqU1UilrCl--iy2TnaqawyeWQ8lDTP/view?usp=sharing" download>Download Timetable</a>
+    </div>
+</div>
+
+</body>
+</html>

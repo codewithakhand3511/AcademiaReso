@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap");
+
+      :root {
+        --primary-color: #12c2b9;
+        --secondary: #dbfffe;
+        --black: #141414;
+        --white: #fff;
+        --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        font-family: "DM Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        text-transform: capitalize;
+        transition: all 0.2s linear;
+      }
+
+      html {
+        font-size: 62.5%;
+        overflow-x: hidden;
+        scroll-padding-top: 9rem;
+        scroll-behavior: smooth;
+      }
+
+      html::-webkit-scrollbar {
+        width: 1rem;
+      }
+
+      html::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      html::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+      }
+
+      section {
+        padding: 5rem 7%;
+      }
+
+      .heading {
+        position: relative;
+        color: var(--primary-color);
+        font-size: 3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.4rem;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .btn {
+        position: relative;
+        display: inline-block;
+        margin-top: 1rem;
+        color: var(--primary-color);
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        max-width: max-content;
+        border: 0.1rem solid var(--primary-color);
+        background: var(--secondary);
+        padding: 1.2rem 4.5rem;
+        overflow: hidden;
+        z-index: 1;
+        border-radius: 0.5rem;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200%;
+        height: 200%;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        transition: 500ms ease;
+        z-index: -1;
+      }
+
+      .btn .text {
+        transition: 250ms ease;
+      }
+
+      .btn .text-2 {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: max-content;
+        color: var(--secondary);
+      }
+
+      .btn:is(:hover, :focus-visible)::before {
+        bottom: -50%;
+      }
+
+      .btn:is(:hover, :focus-visible) .text-1 {
+        transform: translateY(-4rem);
+      }
+
+      .btn:is(:hover, :focus-visible) .text-2 {
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .shine {
+        position: relative;
+      }
+
+      .shine::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        background-image: linear-gradient(to right, transparent 0%, #fff6 100%);
+        transform: skewX(-0.08turn) translateX(-180%);
+      }
+
+      .shine:is(:hover, :focus-within)::after {
+        transform: skewX(-0.08turn) translateX(275%);
+        transition: 1000ms ease;
+      }
+
+      /* header */
+
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: var(--white);
+        box-shadow: var(--box-shadow);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 9%;
+      }
+
+      .header .logo {
+        font-size: 2.5rem;
+        font-weight: bolder;
+        color: var(--black);
+      }
+
+      .header .logo i {
+        color: var(--primary-color);
+        padding-right: 0.5rem;
+      }
+
+      .header .navbar a {
+        font-size: 1.7rem;
+        color: var(--black);
+        margin: 0 1rem;
+        padding-block: 1rem;
+      }
+
+      .header .navbar a:hover {
+        color: var(--primary-color);
+      }
+
+      .header .navbar .hover-underline {
+        position: relative;
+        max-width: max-content;
+      }
+
+      .header .navbar .hover-underline::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 0.5rem;
+        border-block: 0.1rem solid var(--primary-color);
+        transform: scaleX(0.2);
+        opacity: 0;
+        transition: 500ms ease;
+      }
+
+      .header .navbar .hover-underline:is(:hover, :focus-visible)::after {
+        transform: scaleX(1);
+        opacity: 1;
+      }
+
+      .header .icons div {
+        font-size: 2.5rem;
+        margin-left: 1.7rem;
+        color: var(--black);
+        cursor: pointer;
+      }
+
+      .header .icons div:hover {
+        color: var(--primary-color);
+      }
+
+      #menu-btn {
+        display: none;
+      }
+      
+      .home {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: url(images/home.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .home .content {
+        max-width: 50rem;
+      }
+
+      .home .content h3 {
+        font-size: 5rem;
+        color: var(--white);
+        line-height: 1.2;
+      }
+
+      .home .content p {
+        font-size: 1.5rem;
+        line-height: 2;
+        color: var(--white);
+        padding: 1rem 0;
+      }
+
+      /*our popular subjects */
+
+      .subjects .box-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 2rem;
+      }
+
+      .subjects .box-container .box {
+        padding: 3rem 2rem;
+        text-align: center;
+        border: 0.1rem solid var(--primary-color);
+        background: var(--secondary);
+        cursor: pointer;
+      }
+
+      .subjects .box-container .box:hover {
+        background: var(--primary-color);
+      }
+
+      .subjects .box-container .box img {
+        height: 10rem;
+        margin-bottom: 0.7rem;
+      }
+
+      .subjects .box-container .box h3 {
+        font-size: 1.7rem;
+        color: #444;
+        padding: 0.5rem 0;
+        text-transform: capitalize;
+      }
+
+      .subjects .box-container .box:hover h3 {
+        color: #fff;
+      }
+
+      .subjects .box-container .box p {
+        font-size: 1.5rem;
+        line-height: 2;
+        color: #777;
+      }
+
+      .subjects .box-container .box:hover p {
+        color: #eee;
+      }
+
+      /* end */
+
+      /* our materials */
+
+      .material .box-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        gap: 1.5rem;
+      }
+
+      .material .box-container .box {
+        box-shadow: var(--box-shadow);
+        border-radius: 2rem;
+      }
+
+      .material .box-container .box .image {
+        height: 25rem;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        border-radius: 2rem 2rem 0 0;
+      }
+
+      .material .box-container .box .image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .material .box-container .box:hover .image img {
+        transform: scale(1.1);
+      }
+
+      .material .box-container .box .image h3 {
+        font-size: 1.5rem;
+        color: #444;
+        position: absolute;
+        top: 1.5rem;
+        left: 1rem;
+        padding: 0.5rem 1.5rem;
+        background: var(--white);
+        border-radius: 2rem 0 2rem 0;
+      }
+
+      .material .box-container .box .content {
+        padding: 2rem 2rem;
+        background: var(--secondary);
+        border-radius: 0 0 2rem 2rem;
+      }
+
+      .material .box-container .box .content .icons {
+        margin-bottom: 1rem;
+        align-items: center;
+      }
+
+      .material.box-container .box .content .icons a {
+        font-size: 1.4rem;
+        color: var(--primary-color);
+      }
+
+      .material .box-container .box .content .icons a i {
+        padding-right: 0.5rem;
+      }
+
+      .material .box-container .box .content h3 {
+        font-size: 2.2rem;
+        color: var(--black);
+      }
+
+      .material .box-container .box .content p {
+        font-size: 1.5rem;
+        color: var(--black);
+        line-height: 2;
+        padding: 1rem 0;
+      }
+
+      /* ends */
+
+      /* review */
+
+      .review .slide {
+        padding: 1.5rem;
+        box-shadow: var(--box-shadow);
+        border: 0.1rem solid rgba(0, 0, 0, 0.1);
+        border-radius: 2rem;
+        position: relative;
+      }
+
+      .review .slide p {
+        font-size: 1.5rem;
+        text-align: center;
+        padding-bottom: 0.5rem;
+        line-height: 1.8;
+        color: #444;
+      }
+
+      .review .slide .wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 0.3rem;
+      }
+
+      .review .slide .wrapper .separator {
+        width: 0.8rem;
+        height: 0.8rem;
+        border: 0.1rem solid var(--primary-color);
+        transform: rotate(45deg);
+        animation: rotate360 15s linear infinite;
+      }
+
+      @keyframes rotate360 {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(1turn);
+        }
+      }
+
+      .review .slide .fa-quote-right {
+        position: absolute;
+        bottom: 3rem;
+        right: 3rem;
+        font-size: 6rem;
+        color: var(--secondary);
+      }
+
+      .review .slide .user {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1rem 1.5rem;
+        border-radius: 0.5rem;
+      }
+
+      .review .slide .user img {
+        height: 7rem;
+        width: 7rem;
+        border-radius: 15%;
+        object-fit: cover;
+        border: 0.1rem solid var(--primary-color);
+        padding: 0.5rem;
+      }
+
+      .review .slide .user h3 {
+        font-size: 2rem;
+        color: var(--black);
+        padding-bottom: 0.5rem;
+      }
+
+      .review .slide .user .stars i {
+        font-size: 1.3rem;
+        color: var(--primary-color);
+      }
+
+      /* ends */
+
+      /* contact */
+
+      .contact .row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .contact .row .image {
+        flex: 1 1 40rem;
+      }
+
+      .contact .row .image img {
+        width: 100%;
+      }
+
+      .contact .row form {
+        flex: 1 1 40rem;
+        border: 0.1rem solid var(--primary-color);
+        padding: 2rem;
+      }
+
+      .contact .row form h3 {
+        font-size: 2.5rem;
+        color: #444;
+        padding-bottom: 1rem;
+      }
+
+      .contact .row form .box {
+        width: 100%;
+        font-size: 1.6rem;
+        padding: 1.2rem 1.4rem;
+        border: 0.1rem solid var(--primary-color);
+        margin: 0.7rem 0;
+      }
+
+      .contact .row form .box:focus {
+        color: var(--primary-color);
+      }
+
+      .contact .row form textarea {
+        height: 15rem;
+        resize: none;
+      }
+
+      /* ends */
+
+      /* footer */
+
+      .footer {
+        background: var(--secondary);
+        text-align: center;
+      }
+
+      .footer .box-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 2rem;
+      }
+
+      .footer .box-container .box h3 {
+        font-size: 2.2rem;
+        color: var(--primary-color);
+        padding: 1rem 0;
+      }
+
+      .footer .box-container .box p {
+        font-size: 1.5rem;
+        color: var(--black);
+        line-height: 2;
+        padding: 1rem 0;
+      }
+
+      .footer .box-container .box .share {
+        margin-top: 1rem;
+      }
+
+      .footer .box-container .box .share a {
+        height: 4.5rem;
+        width: 4.5rem;
+        line-height: 4.5rem;
+        border-radius: 10%;
+        font-size: 1.7rem;
+        border: 0.1rem solid var(--primary-color);
+        color: var(--primary-color);
+        margin-right: 0.3rem;
+        text-align: center;
+      }
+
+      .footer .box-container .box .share a:hover {
+        background: var(--primary-color);
+        color: var(--white);
+      }
+
+      .footer .box-container .box .link {
+        font-size: 1.7rem;
+        line-height: 2;
+        color: var(--black);
+        padding: 0.5rem 0;
+        display: block;
+      }
+
+      .footer .box-container .box .link:hover {
+        color: var(--primary-color);
+        text-decoration: underline;
+      }
+
+      .contact {
+        background: var(--secondary);
+        text-align: center;
+      }
+
+      .contact .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .contact .row form {
+        padding: 2rem;
+        border: 0.1rem solid rgba(0, 0, 0, 0.1);
+        flex: 1 1 40rem;
+        border-radius: 0.5rem;
+      }
+
+      .contact .row form h3 {
+        font-size: 2.5rem;
+        padding-bottom: 1rem;
+        color: var(--color);
+      }
+
+      .contact .row form .inputBox {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .contact .row form .inputBox input {
+        width: 49%;
+      }
+
+      .contact .row form .inputBox .box,
+      .contact .row form textarea {
+        padding: 1rem 1.2rem;
+        font-size: 1.6rem;
+        border: 0.1rem solid rgba(0, 0, 0, 0.1);
+        color: #222;
+        text-transform: none;
+        margin: 0.7rem 0;
+        border-radius: 0.5rem;
+      }
+
+      .contact .row form textarea {
+        width: 100%;
+        height: 15rem;
+        resize: none;
+      }
+
+      .contact .row form .btn {
+        background: none;
+      }
+
+      .contact .row form .btn:hover {
+        background: var(--color);
+      }
+
+      .contact .row .map {
+        flex: 1 1 40rem;
+      }
+
+      /* /* Our Team Members */
+
+      .team .box-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 2rem;
+      }
+
+      .team .box-container .box {
+        background: var(--white);
+        box-shadow: var(--box-shadow);
+        border-radius: 0.5rem;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+      }
+
+      .team .box-container .box .image {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .team .box-container .box .image img {
+        background: var(--secondary);
+        width: 100%;
+      }
+
+      .team .box-container .box:hover .image .share {
+        bottom: 0;
+      }
+
+      .team .box-container .box .image .share {
+        position: absolute;
+        bottom: -10rem;
+        left: 0;
+        right: 0;
+        padding: 2rem;
+      }
+
+      .team .box-container .box .image .share a {
+        height: 4rem;
+        width: 4rem;
+        line-height: 4rem;
+        font-size: 2rem;
+        margin: 0 1rem;
+        color: var(--secondary);
+        background: var(--primary-color);
+        border-radius: 0.5rem;
+      }
+
+      .team .box-container .box .image .share a:hover {
+        color: var(--primary-color);
+        background: var(--secondary);
+      }
+
+      .team .box-container .box .content {
+        padding: 2rem;
+        padding-top: 1rem;
+        align-items: center;
+      }
+
+      .team .box-container .box .content h3 {
+        font-size: 2rem;
+        color: var(--black);
+      }
+
+      .team .box-container .box .content span {
+        font-size: 1.5rem;
+        line-height: 2;
+        color: #777;
+      }
+
+      /* ends */
+
+      /* media queries */
+
+      @media (max-width: 991px) {
+        html {
+          font-size: 55%;
+        }
+
+        .header {
+          padding: 2rem 4rem;
+        }
+
+        section {
+          padding: 3rem 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #menu-btn {
+          display: inline-block;
+        }
+
+        .header .navbar {
+          position: absolute;
+          top: 110%;
+          right: -110%;
+          width: 30rem;
+          box-shadow: var(--box-shadow);
+          border-radius: 0.5rem;
+          background: var(--white);
+        }
+
+        .header .navbar.active {
+          right: 2rem;
+          transition: 0.4s linear;
+        }
+
+        .header .navbar a {
+          font-size: 2rem;
+          margin: 1rem 2.5rem;
+          display: block;
+        }
+
+        .home .content h3 {
+          font-size: 3rem;
+        }
+
+        .about .container .about-content {
+          padding-left: 0;
+        }
+      }
+
+      @media (max-width: 450px) {
+        html {
+          font-size: 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header section starts -->
+    <header class="header">
+      <a href="#" class="logo"><i class="fas fa-book"></i> AcademiaHub</a>
+
+      <nav class="navbar">
+        <a href="#home" class="hover-underline">HOME</a>
+        <a href="#about" class="hover-underline">SUBJECTS</a>
+        <a href="#blog" class="hover-underline">MATERIALS</a>
+        <a href="#review" class="hover-underline">REVIEW</a>
+        <a href="#contact" class="hover-underline">CONTACT</a>
+        <a href="#teacher" class="hover-underline">TEAM</a>
+      </nav>
+     
+      <div class="icons">
+        <a href="http://localhost/Login%20and%20Register/index.php" id="login-btn" class="" style="width:120px;
+        height:40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #33a999;
+        color:#fff;
+        box-shadow: 5px 10px 30px rgba(219, 74, 6, 0.5);
+        text-transform: uppercase;
+        transition: 0.3s ease-in-out;">Login/SignUp</a>
+        <!-- <div id="login-btn" class="fas fa-user"></div> -->
+        <div id="menu-btn" class="fas fa-bars"></div>
+      </div>
+    </header>
+        <!-- home section starts-->
+
+    <section class="home" id="home">
+      <div class="content">
+        <h3>Student Study Management Tools</h3>
+        <p>Take control of your academic journey</p>
+        <a href="#" class="btn">
+          <span class="text text-1">learn more</span>
+          <span class="text text-2" aria-hidden="true">learn more</span>
+        </a>
+      </div>
+    </section>
+    <!-- header section ends -->
+
+    <!-- subjects section starts -->
+
+    <section class="subjects">
+      <h1 class="heading">our popular subjects</h1>
+
+      <div class="box-container">
+        <div class="box">
+          <a href="https://www.youtube.com/@JennyslecturesCSIT/playlists"><img src="images/subject-1.png" alt="" /></a>
+          <h3>Programing</h3>
+        </div>
+
+        <div class="box">
+          <a href="https://www.youtube.com/results?search_query=tikle%27s+academy"><img src="images/subject-2.png" alt="" /></a>
+          <h3>Mathematics</h3>
+        </div>
+
+        <div class="box">
+         <a href="https://www.youtube.com/playlist?list=PL0tP8lerTbX3eUtBFS0Ir4_aFqKuXWjYZ"><img src="images/subject-3.png" alt="" /></a>
+          <h3>Linux</h3>
+        </div>
+
+        <div class="box">
+          <a href="https://www.youtube.com/results?search_query=physics+wallah"><img src="images/subject-4.png" alt="" /></a>
+          <h3>Physics</h3>
+        </div>
+      </div>
+    </section>
+
+    <!--our materials section starts -->
+    <section class="material" id="material">
+      <h1 class="heading">our materials</h1>
+
+      <div class="box-container">
+        <div class="box">
+          <div class="image shine">
+            <img src="images/blog-1.jpg" alt="" />
+          </div>
+          <div class="content">
+            <div class="icons">
+              <a href="#"><i class="fas fa-user"></i>by Academics</a>
+            </div>
+            <h3>syllabus</h3>
+            <!-- <p>Your academic compass, guiding you through the course terrain</p> -->
+            <p>A syllabus is a concise outline detailing the content, objectives, and requirements of a course or program of study.</p>
+            <a href="akshadsyllabus/syllbus.html" class="btn">
+              <span class="text text-1">download now</span>
+              <span class="text text-2" aria-hidden="true">download now</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="image shine">
+            <img src="images/blog-2.jpg" alt="" />
+          </div>
+          <div class="content">
+            <div class="icons">
+              <a href="#"><i class="fas fa-user"></i>by academics</a>
+            </div>
+            <h3>Timetable</h3>
+            <!-- <p>Your personal time-management maestro.</p> -->
+           <p>A timetable is a structured schedule that outlines events, tasks, or activities over a period, aiding organization and time management.</p>
+            <a href="time2.html" class="btn">
+              <span class="text text-1">download now</span>
+              <span class="text text-2" aria-hidden="true">download now</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="image shine">
+            <img src="images/blog-3.jpg" alt="" />
+          </div>
+          <div class="content">
+            <div class="icons">
+              <a href="#"><i class="fas fa-user"></i>by academics</a>
+            </div>
+            <h3>e-Books Pdf</h3>
+            <!-- <p>A digital treasure trove of knowledge at your fingertips.</p> -->
+            <p>
+              E-books in PDF format are digital documents that replicate the layout and design of traditional printed books</p>
+            <a href="book pdf.html" class="btn">
+              <span class="text text-1">download now</span>
+              <span class="text text-2" aria-hidden="true">download now</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="material" id="material">
+      <div class="box-container">
+        <div class="box">
+          <div class="image shine">
+            <img src="images/blog-4.jpg" alt="" />
+          </div>
+          <div class="content">
+            <div class="icons">
+              <a href="#"><i class="fas fa-user"></i>by Academics</a>
+            </div>
+            <h3>pyq's</h3>
+            <!-- <p>Your crystal ball into the exam's mind.</p> -->
+            <p>PYQs, or Previous Year Questions, are past examination questions compiled to aid preparation for upcoming exams, providing insight into the exam format and types of questions likely to be asked.</p>
+            <a href="pyq.html" class="btn">
+              <span class="text text-1">download now</span>
+              <span class="text text-2" aria-hidden="true">download now</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="image shine">
+            <img src="images/blog-5.jpg" alt="" />
+          </div>
+          <div class="content">
+            <div class="icons">
+              <a href="#"><i class="fas fa-user"></i>by Academics</a>
+            </div>
+            <h3>Lab Notes</h3>
+            <!-- <p>Your hands-on companion in the realm of experimentation.</p> -->
+            <p>
+              Lab notes are concise records documenting experimental procedures, observations, and results in scientific research, facilitating reproducibility and analysis of experiments.</p>
+          
+            <a href="IP/lab.html" class="btn">
+              <span class="text text-1">download now</span>
+              <span class="text text-2" aria-hidden="true">download now</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="image shine">
+            <img src="images/blog-6.jpg" alt="" />
+          </div>
+          <div class="content">
+            <div class="icons">
+              <a href="#"><i class="fas fa-user"></i>by Academics</a>
+            </div>
+            <h3>Upcoming Events</h3>
+            <!-- <p>Your gateway to a dynamic learning ecosystem.</p> -->
+            <p>Upcoming events in college are future activities or gatherings planned within the academic institution, offering students opportunities for social interaction, learning, and personal development.</p>
+            <a href="IP/event.html" class="btn">
+              <span class="text text-1">download now</span>
+              <span class="text text-2" aria-hidden="true">download now</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- review section starts -->
+
+    <section class="review" id="review">
+      <h1 class="heading">our students review</h1>
+
+      <div class="swiper review-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide slide">
+            <p>
+              Your academic compass, guiding you through the course terrain
+              Provides a structured outline of topics, assignments, and
+              expectations.
+            </p>
+            <div class="wrapper">
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+            </div>
+            <i class="fas fa-quote-right"></i>
+            <div class="user">
+              <img src="images/review-1.png" alt="" />
+              <div class="user-info">
+                <h3>Aarav</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide slide">
+            <p>
+              Facilitates efficient allocation of study, work, and leisure time
+              A vital instrument for mastering the art of time management.
+            </p>
+            <div class="wrapper">
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+            </div>
+            <i class="fas fa-quote-right"></i>
+            <div class="user">
+              <img src="images/review-2.png" alt="" />
+              <div class="user-info">
+                <h3>Priya</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide slide">
+            <p>
+              Portable, searchable, often more affordable than physical books
+              A convenient and cost-effective supplement to traditional textbooks.
+            </p>
+            <div class="wrapper">
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+            </div>
+            <i class="fas fa-quote-right"></i>
+            <div class="user">
+              <img src="images/review-3.png" alt="" />
+              <div class="user-info">
+                <h3>Mayank</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide slide">
+            <p>
+              Offers insight into exam patterns, aids in time management and self-assessment
+              A strategic weapon for honing exam-taking skills.
+            </p>
+            <div class="wrapper">
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+            </div>
+            <i class="fas fa-quote-right"></i>
+            <div class="user">
+              <img src="images/review-4.png" alt="" />
+              <div class="user-info">
+                <h3>Nisha</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide slide">
+            <p>
+              A gateway to bridging theory with practical application.
+            </p>
+            <div class="wrapper">
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+            </div>
+            <i class="fas fa-quote-right"></i>
+            <div class="user">
+              <img src="images/review-5.png" alt="" />
+              <div class="user-info">
+                <h3>Sameer</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide slide">
+            <p>
+              An avenue for enriching your academic journey through interactive engagement.
+            </p>
+            <div class="wrapper">
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+            </div>
+            <i class="fas fa-quote-right"></i>
+            <div class="user">
+              <img src="images/review-6.png" alt="" />
+              <div class="user-info">
+                <h3>Maya</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- review section ends -->
+
+    <!-- contact section starts -->
+    <section class="contact" id="contact">
+      <h1 class="heading">contact us</h1>
+
+      <div class="row">
+        <div class="image">
+          <img src="images/contact.png" alt="" />
+        </div>
+        <form id="contactForm">
+          <h3>Send us a message</h3>
+          <input type="text" placeholder="Name" class="box box1" id="name" />
+          <input type="email" placeholder="Email" class="box box2" id="email" />
+          <input type="number" placeholder="Phone Number" class="box box3" id="phone" />
+          <textarea placeholder="Message" class="box box4" cols="30" rows="10" id="message"></textarea>
+          <button type="submit" class="btn" style="color: black; cursor: pointer;">Submit</button>
+      </form>
+      </div>
+    </section>
+
+    <!-- contact section ends -->
+
+    <!-- footer section stars -->
+
+    <section class="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3>find us here</h3>
+          <p>Campuses near Chandigarh — Ranked Among the Best By "NIRF"</p>
+          <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3>contact us</h3>
+          <p>+91 9555228781</p>
+          <a href="#" class="link">codewithakhand@gmail.com</a>
+        </div>
+
+        <div class="box">
+          <h3>localization</h3>
+          <p>
+            Located 30 kms from Chandigarh<br />
+            Chitkara University<br />
+            India
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact us section starts -->
+    <section class="contact">
+      <div class="row">
+        <form action="">
+          <h3>Our Location</h3>
+
+          <div class="inputBox">
+            <input type="text" placeholder="Enter Your Name" class="box" />
+            <input type="email" placeholder="Enter Your Email" class="box" />
+          </div>
+          <textarea placeholder="Your Message" cols="30" rows="10"></textarea>
+          <input type="submit" value="send message" class="btn" />
+        </form>
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d428.04134208791936!2d76.87203130556328!3d30.877407536109857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ff55d9e0ed113%3A0x34a6cadf9a13d341!2sCHITKARA%20UNIVERSITY%2C%20BADDI!5e0!3m2!1sen!2sin!4v1711956599645!5m2!1sen!2sin"
+          width="550"
+          height="400"
+          allowfullscreen=""
+          loading="lazy"
+          class="map"
+        ></iframe>
+      </div>
+    </section>
+    <!-- footer section ends -->
+
+    <!-- Our Team Members section starts -->
+    <section class="team" id="teacher">
+      <h1 class="heading">our team member</h1>
+
+      <div class="box-container">
+        <div class="box">
+          <div class="image">
+            <img src="images/teacher-1.png" alt="" />
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-twitter"></a>
+              <a href="#" class="fab fa-instagram"></a>
+            </div>
+          </div>
+          <div class="content">
+            <h3>Akshay</h3>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="image">
+            <img src="images/teacher-2.png" alt="" />
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-twitter"></a>
+              <a href="#" class="fab fa-instagram"></a>
+            </div>
+          </div>
+          <div class="content">
+            <h3>Akhand</h3>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="image">
+            <img src="images/teacher-3.png" alt="" />
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-twitter"></a>
+              <a href="#" class="fab fa-instagram"></a>
+            </div>
+          </div>
+          <div class="content">
+            <h3>Akshit</h3>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="image">
+            <img src="images/teacher-4.png" alt="" />
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-twitter"></a>
+              <a href="#" class="fab fa-instagram"></a>
+            </div>
+          </div>
+          <div class="content">
+            <h3>Akshad</h3>
+            <!-- <span>instructor</span> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="contact.js"></script>
+  </body>
+</html>
+ 

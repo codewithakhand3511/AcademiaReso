@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Subjects & YouTube Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .video-link {
+            margin-bottom: 20px;
+        }
+
+        .video-link a {
+            display: block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .video-link a:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subjects {
+            margin-top: 40px;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: calc(50% - 10px);
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .box img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .box h3 {
+            padding: 20px;
+            margin: 0;
+            color: #333;
+            background-color: #f8f8f8;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>CSE 1 Year</h1>
+
+    <section class="video-link">
+        <h2>YouTube Links</h2>
+        <div class="box-container">
+            <div class="box">
+                <a href="https://www.youtube.com/results?search_query=tikle%27s+academy">Maths</a>
+            </div>
+            <div class="box">
+                <a href="https://www.youtube.com/results?search_query=apna+college+c+language">C Language</a>
+            </div>
+            <div class="box">
+                <a href="https://www.youtube.com/results?search_query=linux+playlist">Linux</a>
+            </div>
+            <div class="box">
+                <a href="https://www.youtube.com/results?search_query=engineering+physics+1st+semester">Physics</a>
+            </div>
+            <div class="box">
+                <a href="https://www.youtube.com/results?search_query=basic+electrical+engineering+btech+1st+year">Electronics</a>
+            </div>
+            <div class="box">
+                <a href="https://www.youtube.com/results?search_query=os+gate+smashers">Operating System</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="subjects">
+        <h2 class="heading">Our Popular Subjects</h2>
+        <div class="box-container">
+            <div class="box">
+                <img src="ip project/School website/images/subject-1.png" alt="" />
+                <h3>Programming</h3>
+            </div>
+            <div class="box">
+                <img src="ip project/School website/images/subject-2.png" alt="" />
+                <h3>Mathematics</h3>
+            </div>
+            <div class="box">
+                <img src="ip project/School website/images/subject-3.png" alt="" />
+                <h3>Linux</h3>
+            </div>
+            <div class="box">
+                <img src="ip project/School website/images/subject-4.png" alt="" />
+                <h3>Physics</h3>
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

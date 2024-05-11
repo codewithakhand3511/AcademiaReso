@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Book Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffcc00, #ff6600, #cc33ff, #0033cc, #009999);
+            background-size: 500% 500%;
+            animation: gradientBG 15s ease infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .ebook-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(113, 78, 78, 0.5);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .book {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        .book:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .book img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .book h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .book p {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="ebook-title">E-Book</div>
+
+<div class="container">
+    <div class="book">
+        <img src="https://th.bing.com/th/id/OIP.99jucwzMRKZa4QlTgoRV8wHaGS?rs=1&pid=ImgDetMain" alt="Book 1">
+        <h3>Book 1</h3>
+        <p>Linux Operating System</p>
+        <a href="https://drive.google.com/file/d/1Ie45nbBgAenYGIQjuxjHCtqQouWwrITf/view?usp=sharing" download>Download</a>
+    </div>
+    
+    <div class="book">
+        <img src="https://lh6.googleusercontent.com/proxy/zgsnXOHxwR1JxdseL3PAJLqES5hnSmLxKHwTH3YXI07kARO52_XLQZ2eLtZKLRlHf0-rmRzrQRlfNtKlpUPwe9xMAeq1yGYqxySZrQYFK96CLJx5I9Cxo2Ua61I" alt="Book 2">
+        <h3>Book 2</h3>
+        <p>Operating System</p>
+        <a href="https://drive.google.com/file/d/1aXY6ByKkeOzVpoEAxkYhyDXSksQ2fx8k/view?usp=sharing" download>Download</a>
+    </div>
+    
+    <div class="book">
+        <img src="https://t4.ftcdn.net/jpg/04/38/69/77/360_F_438697752_bIJMNtw4TvQGq9T3k7JnhmOei91WHuGj.jpg" alt="Book 3">
+        <h3>Book 3</h3>
+        <p>Physics</p>
+        <a href="https://drive.google.com/file/d/1TBthSYvAxbW-XVh69NbZ5cslY3a9Sz6U/view?usp=sharing" download>Download</a>
+    </div>
+
+    <div class="book">
+        <img src="https://play-lh.googleusercontent.com/_cOaTmxNAlpkMjx1XnjLgX-PSbO1IDk1ocu7rm3iozJ1DOEja76StT22EubCO1LPhaEX" alt="Book 4">
+        <h3>Book 4</h3>
+        <p>Basic Electrical engineering</p>
+        <a href="https://drive.google.com/file/d/1JY5ZEY-CshXD5nC-sNpvF4v7iNPTf7eq/view?usp=sharing" download>Download</a>
+    </div>
+
+    <div class="book">
+        <img src="https://img.freepik.com/free-photo/digital-screen-with-environment-day_23-2148884835.jpg?size=626&ext=jpg&ga=GA1.1.1887574231.1711843200&semt=ais" alt="Book 5">
+        <h3>Book 5</h3>
+        <p>ENVIRONMENTAL-SCIENCE</p>
+        <a href="https://drive.google.com/file/d/1t5p3GKQjaLoEod4icvj1D4dRd9cTUKTg/view?usp=sharing" download>Download</a>
+    </div>
+
+    <div class="book">
+        <img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs2/354378646/original/a7ec7307192f77cf6266e1113ecb5f1e5aa1b53a/assist-in-business-statistics-college-algebra-calculus-and-data-analysis.jpg" alt="Book 6">
+        <h3>Book 6</h3>
+        <p>Maths</p>
+        <a href="https://drive.google.com/file/d/1HJEq0OCJ_Vo_3oIK5-qcGrkEumCGAGnh/view?usp=sharing" download>Download</a>
+    </div>
+</div>
+
+</body>
+</html>

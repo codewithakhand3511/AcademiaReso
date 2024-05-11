@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question Papers</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      background-image: url('https://img.freepik.com/free-vector/bokeh-defocused-background_23-2148497833.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .container {
+      text-align: center;
+      position: absolute;
+      top: 50px; /* Adjust this value to position the container from the top */
+      width: 100%;
+    }
+
+    h1 {
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .circle-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 40px; /* Adjust the space between the circles and text */
+    }
+
+    .circle {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-size: cover;
+      margin: 0 10px;
+      position: relative;
+    }
+
+    .circle-text-container {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+    }
+
+    .circle-text {
+      font-size: 24px;
+      color: rgb(12, 1, 1);
+      margin-top: 10px; /* Adjust the space between the circle and text */
+    }
+
+    #circle1 {
+      background-image: url('https://i.giphy.com/kNLEd2YfMmOcwHHx6u.webp');
+    }
+
+    #circle2 {
+      background-image: url('https://cdn.dribbble.com/users/1983603/screenshots/3987669/dribbble_unsw_mathapple.gif');
+    }
+
+    #circle3 {
+      background-image: url('https://i.pinimg.com/originals/6b/21/e5/6b21e58e8380e4fdc455b32871630988.gif');
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><strong>Previous Year Question Papers</strong></h1>
+    <div class="circle-container">
+      <div class="circle" id="circle1" onclick="openPage('https://linktr.ee/akshay_1051')"></div>
+      <div class="circle" id="circle2" onclick="openPage('https://linktr.ee/akshay_sood_23')"></div>
+      <div class="circle" id="circle3" onclick="openPage('https://linktr.ee/akshay_1051_a1')"></div>
+    </div>
+
+  </div>
+  <script>
+    function openPage(url) {
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
